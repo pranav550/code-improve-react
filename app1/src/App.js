@@ -24,6 +24,22 @@ import RenderProps2 from "./RenderProps2";
 import RenderProp from "./RenderProp";
 import PageA from "./PageA";
 import { Provider } from './Context';
+import Bootstrap from "./Bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Forms from "./Forms";
+import Controlled from "./Controlled";
+import UnControlled from "./UnControlled";
+import ApiAxios from './ApiAxios';
+import ApiFetch from './ApiFetch';
+import Upload from "./Upload";
+import { Route, Link, Switch } from "react-router-dom";
+import List from "./Component/List";
+import Home from './Component/Home';
+import About from './Component/About';
+import PageNotFound from "./Component/PageNotFound";
+import React, { Suspense, lazy } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
 
 function App() {
   const dataPass = {
@@ -31,6 +47,7 @@ function App() {
     name: 'Pranav',
     department: ['A', 'B', 'c']
   }
+  const ids = 22;
   return (
     <div className="App">
       {/* hello */}
@@ -71,9 +88,40 @@ function App() {
       <RenderProp>
         {(count, clickHandler) => (<RenderProps2 count={count} clickHandler={clickHandler} />)}
       </RenderProp> */}
-      <Provider value={dataPass}>
+
+      {/* <Provider value={dataPass}>
         <PageA />
-      </Provider>
+      </Provider> */}
+      {/* <Bootstrap /> */}
+      {/* <Forms /> */}
+
+      {/* <Controlled />
+      <UnControlled /> */}
+
+      {/* <ApiAxios /> */}
+      {/* <ApiFetch /> */}
+
+      {/* <Upload /> */}
+
+
+      {/* <Link to="/home">Home</Link><br />
+      <Link to="/about">About</Link><br />
+      <Link to={'/list/' + ids}>List</Link><br />
+      <Link to="/test">Test</Link><br />
+
+      <Switch>
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/list/:id" component={List} />
+        <Route path="/test">Test Data</Route>
+        <Route path="*" exact={true} component={PageNotFound} />
+      </Switch> */}
+
+      <Suspense fallback={<div>Loading.........</div>}>
+        <LazyComponent />
+
+      </Suspense>
 
 
 
