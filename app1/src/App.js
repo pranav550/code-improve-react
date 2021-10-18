@@ -16,9 +16,21 @@ import Demo1 from "./Demo1";
 import ErrorBoundary from './ErrorBoundary';
 import Demo2 from "./Demo2";
 import ProptypeDemo from "./ProptypeDemo";
-
+import ThreeDot from "./ThreeDot";
+import HocFirst from './HocFirst';
+import HocSecond from "./HocSecond";
+import RenderProps1 from "./RenderProps1";
+import RenderProps2 from "./RenderProps2";
+import RenderProp from "./RenderProp";
+import PageA from "./PageA";
+import { Provider } from './Context';
 
 function App() {
+  const dataPass = {
+    id: '1111',
+    name: 'Pranav',
+    department: ['A', 'B', 'c']
+  }
   return (
     <div className="App">
       {/* hello */}
@@ -44,7 +56,26 @@ function App() {
       <ErrorBoundary>
         <Demo2 />
       </ErrorBoundary> */}
-      <ProptypeDemo name="Code Improve" id={12} />
+      {/* <ProptypeDemo name="Code Improve" id={12} /> */}
+      {/* <ThreeDot /> */}
+      {/* <HocFirst name="pranav" />
+      <HocSecond name="shalaj" /> */}
+      {/* <RenderProps1 /> */}
+      {/* <RenderProps2 /> */}
+      {/* <RenderProp name={(isUser) => (isUser) ? 'Code Improve' : 'Test'} /> */
+      }
+
+      {/* <RenderProp>
+        {(count, clickHandler) => (<RenderProps1 count={count} clickHandler={clickHandler} />)}
+      </RenderProp>
+      <RenderProp>
+        {(count, clickHandler) => (<RenderProps2 count={count} clickHandler={clickHandler} />)}
+      </RenderProp> */}
+      <Provider value={dataPass}>
+        <PageA />
+      </Provider>
+
+
 
     </div>
   );
